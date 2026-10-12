@@ -11,6 +11,7 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 COPY . /var/www/html
+RUN rm -rf /var/www/html/install
 RUN composer install --no-dev --no-interaction --prefer-dist || true \
     && chown -R www-data:www-data /var/www/html
 

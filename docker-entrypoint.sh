@@ -1,5 +1,7 @@
 #!/bin/bash
 set -e
+a2dismod mpm_event mpm_worker 2>/dev/null || true
+a2enmod mpm_prefork
 
 # Railway gives the port in $PORT
 PORT="${PORT:-80}"
